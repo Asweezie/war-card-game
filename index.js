@@ -1,4 +1,4 @@
-let deckID = ''
+let deckID = '';
 let cardCount = 52;
 let score1 = 0
 let score2 = 0
