@@ -14,3 +14,8 @@
 .nextTwo {
     display: inline-block;
 }
+
+#doggies {
+    display: none;
+    height: 100%;
+}

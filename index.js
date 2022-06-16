@@ -55,11 +55,12 @@ fetch(`https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1`)
         }
         if (Number(data.remaining) === 0) {
             document.querySelector('#result').style.fontSize = '10rem'
+            document.querySelector('#doggies').style.display = 'block';
             if (score1 > score2) {
-                document.querySelector('#result').innerText = 'Player 1 WON THE ENTIRE WAR!!!!!!'
+                document.querySelector('#result').innerText = 'Player 1 WON THE ENTIRE WAR!!!!!! Please enjoy a complimentary dog picture.'
             }
             else if (Number(score1 < score2)) {
-                document.querySelector('#result').innerText = 'Player 2 WON THE ENTIRE WAR!!!!!!'
+                document.querySelector('#result').innerText = 'Player 2 WON THE ENTIRE WAR!!!!!! Please enjoy a complimentary dog picture.'
             }
         }
         
@@ -120,6 +121,7 @@ fetch(`https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1`)
             
             if (Number(data.remaining) === 0) {
                 document.querySelector('#result').style.fontSize = '10rem'
+                document.querySelector('#doggies').style.display = 'block';
                 if (score1 > score2) {
                     document.querySelector('#result').innerText = 'Player 1 WON THE ENTIRE WAR!!!!!!'
                 }
@@ -127,12 +129,15 @@ fetch(`https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1`)
                     document.querySelector('#result').innerText = 'Player 2 WON THE ENTIRE WAR!!!!!!'
                 }
             }
-
-
             })
-              
-    }
+         }
 
+         fetch(`https://dog.ceo/api/breeds/image/random`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                document.querySelector('#doggies').src = data.message;
+            })
 
     
         
