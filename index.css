@@ -1,0 +1,16 @@
+#war {
+    display: none;
+}
+
+#cardCount {
+    font-size: 3rem;
+    margin-left: 50px;
+}
+
+.next {
+    display: inline-block;
+}
+
+.nextTwo {
+    display: inline-block;
+}
