@@ -2,6 +2,7 @@ let deckID = ''
 let cardCount = 52;
 let score1 = 0
 let score2 = 0
+alert('YOU ARE PLAYER 1, DEAL WITH IT!')
 document.querySelector('#cardCount').innerText = cardCount;
 
 
@@ -32,12 +33,12 @@ fetch(`https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1`)
         let p1Val = convertFaceCards(data.cards[0].value) 
         let p2Val = convertFaceCards(data.cards[1].value)
         if (p1Val > p2Val) {
-            document.querySelector('#result').innerText = 'Player 1 Wins!'
+            document.querySelector('#result').innerText = `Player 1 Wins! ${data.cards[0].value} beats ${data.cards[1].value}`
             score1 += 1
             document.querySelector('#score1').innerText = score1
         }
         else if (p1Val < p2Val) {
-            document.querySelector('#result').innerText = 'Player 2 Wins!'
+            document.querySelector('#result').innerText = `Player 2 Wins! ${data.cards[1].value} beats ${data.cards[0].value}`
             score2 += 1
             document.querySelector('#score2').innerText = score2
         }
@@ -98,14 +99,15 @@ fetch(`https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1`)
             let p2Val = convertFaceCards(data.cards[5].value)
 
             if (p1Val > p2Val) {
-                document.querySelector('#result').innerText = 'Player 1 Wins!'
+                document.querySelector('#result').innerText = `Player 1 Wins! ${data.cards[2].value} beats ${data.cards[5].value}`
+                
                 document.querySelector('#deal').style.display = 'block';
                 document.querySelector('#war').style.display = 'none';
                 score1 += 4
                 document.querySelector('#score1').innerText = score1
             }
             else if (p1Val < p2Val) {
-                document.querySelector('#result').innerText = 'Player 2 Wins!'
+                document.querySelector('#result').innerText = `Player 2 Wins! ${data.cards[5].value} beats ${data.cards[2].value}`
                 document.querySelector('#deal').style.display = 'block';
                 document.querySelector('#war').style.display = 'none';
                 score2 += 4
